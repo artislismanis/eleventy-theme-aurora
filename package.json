@@ -1,0 +1,73 @@
+{
+  "name": "eleventy-theme-aurora",
+  "version": "0.1.0",
+  "description": "A drop-in Eleventy theme for @eleventy-plugin-themer, started from theme-base",
+  "type": "module",
+  "main": "lib/index.mjs",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./theme.json": "./theme.json",
+    "./layouts/*": "./layouts/*",
+    "./styles/*": "./styles/*",
+    "./scripts/*": "./scripts/*",
+    "./features/*": "./features/*"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . && stylelint \"**/*.scss\" && prettier --check .",
+    "lint:fix": "eslint . --fix && stylelint \"**/*.scss\" --fix && prettier --write .",
+    "format": "prettier --write ."
+  },
+  "files": [
+    "lib/",
+    "layouts/",
+    "styles/",
+    "scripts/",
+    "features/",
+    "public/",
+    "theme.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "eleventy",
+    "eleventy-theme",
+    "11ty",
+    "blog-theme",
+    "blog-template",
+    "feature-system"
+  ],
+  "author": "Artis Lismanis",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@eleventy-plugin-themer/core": "^0.1.0",
+    "luxon": "^3.7.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0"
+  },
+  "peerDependencies": {
+    "@11ty/eleventy": "^3.1.0",
+    "@11ty/eleventy-navigation": "^1.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "globals": "^17.1.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-jinja-template": "^2.1.0",
+    "stylelint": "^16.24.0",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

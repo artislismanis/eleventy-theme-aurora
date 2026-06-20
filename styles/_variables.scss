@@ -1,0 +1,96 @@
+// ============================================
+// CSS Custom Properties (Variables)
+// ============================================
+//
+// These reference theme config values injected in <head> by theme-styles.njk
+// Pattern: var(--theme-light-*, fallback) for light theme
+//          var(--theme-dark-*, fallback) for dark theme
+//
+// The theme config (theme.json) provides default colors.
+// Users can override via content/_data/theme.js
+
+// ============================================
+// Light Theme (Default)
+// ============================================
+:root {
+  // Typography - use theme config with fallbacks
+  --font-family: var(--theme-font-family, -apple-system, system-ui, sans-serif);
+  --font-family-heading: var(--theme-font-family-heading, inherit);
+  --font-family-monospace: var(
+    --theme-font-family-mono,
+    'Consolas',
+    'Monaco',
+    'Andale Mono',
+    'Liberation Mono',
+    'Courier New',
+    monospace
+  );
+  --font-size: var(--theme-font-size, 1rem);
+  --line-height: var(--theme-line-height, 1.6);
+
+  // Colors - Light theme (default)
+  --color-background: var(--theme-light-background, #fff);
+  --color-surface: var(--theme-light-surface, #f2f2f2);
+  --color-primary: var(--theme-light-primary, #082840);
+  --color-secondary: var(--theme-light-secondary, #c0c0c0);
+  --color-accent: var(--theme-light-accent, #5f2b48);
+  --color-text: var(--theme-light-text, #333);
+  --color-text-muted: var(--theme-light-text-muted, #595959);
+  --color-link: var(--theme-light-link, #082840);
+  --color-link-hover: var(--theme-light-link-hover, #5f2b48);
+  --color-link-visited: var(--theme-light-link-visited, #17050f);
+  --color-border: var(--theme-light-border, #e0e0e0);
+
+  // Status colors
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+
+  // Syntax Highlighting
+  --syntax-tab-size: 2;
+}
+
+// ============================================
+// Dark Theme - System Preference
+// ============================================
+// Applies when system prefers dark AND user hasn't explicitly set light
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-background: var(--theme-dark-background, #15202b);
+    --color-surface: var(--theme-dark-surface, #1b2733);
+    --color-primary: var(--theme-dark-primary, #1493fb);
+    --color-secondary: var(--theme-dark-secondary, #6969f7);
+    --color-accent: var(--theme-dark-accent, #6969f7);
+    --color-text: var(--theme-dark-text, #dad8d8);
+    --color-text-muted: var(--theme-dark-text-muted, #8a99a8);
+    --color-link: var(--theme-dark-link, #1493fb);
+    --color-link-hover: var(--theme-dark-link-hover, #6969f7);
+    --color-link-visited: var(--theme-dark-link-visited, #a6a6f8);
+    --color-border: var(--theme-dark-border, #2a3845);
+
+    // Status colors (lighter for dark mode)
+    --color-success: #4ade80;
+    --color-error: #f87171;
+  }
+}
+
+// ============================================
+// Dark Theme - Manual Override
+// ============================================
+// Applies when user explicitly selects dark mode via toggle
+:root[data-theme='dark'] {
+  --color-background: var(--theme-dark-background, #15202b);
+  --color-surface: var(--theme-dark-surface, #1b2733);
+  --color-primary: var(--theme-dark-primary, #1493fb);
+  --color-secondary: var(--theme-dark-secondary, #6969f7);
+  --color-accent: var(--theme-dark-accent, #6969f7);
+  --color-text: var(--theme-dark-text, #dad8d8);
+  --color-text-muted: var(--theme-dark-text-muted, #8a99a8);
+  --color-link: var(--theme-dark-link, #1493fb);
+  --color-link-hover: var(--theme-dark-link-hover, #6969f7);
+  --color-link-visited: var(--theme-dark-link-visited, #a6a6f8);
+  --color-border: var(--theme-dark-border, #2a3845);
+
+  // Status colors (lighter for dark mode)
+  --color-success: #4ade80;
+  --color-error: #f87171;
+}

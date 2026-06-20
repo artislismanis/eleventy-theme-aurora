@@ -1,0 +1,167 @@
+{
+  "themeFeatures": [
+    {
+      "name": "code-highlighting",
+      "entry": "features/code-highlighting/index.js"
+    },
+    {
+      "name": "back-to-top",
+      "entry": "features/back-to-top/index.js"
+    }
+  ],
+
+  "build": {
+    "purgeCSS": {
+      "safelist": {
+        "deep": [
+          "data-theme",
+          "data-component",
+          "language-",
+          "code",
+          "pre",
+          "token",
+          "diff-highlight",
+          "back-to-top"
+        ],
+        "greedy": ["language-"]
+      }
+    },
+    "postcss": {
+      "plugins": [
+        {
+          "package": "postcss-preset-env",
+          "options": {
+            "stage": 3,
+            "features": {
+              "nesting-rules": true,
+              "custom-properties": true,
+              "custom-media-queries": true
+            }
+          }
+        },
+        {
+          "package": "cssnano",
+          "production": true,
+          "options": {
+            "preset": [
+              "default",
+              {
+                "discardComments": { "removeAll": true },
+                "normalizeWhitespace": true,
+                "colormin": true,
+                "minifyFontValues": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+
+  "assets": {
+    "styles": {
+      "entry": "styles/main.scss"
+    },
+    "scripts": {
+      "entry": "scripts/main.js"
+    }
+  },
+
+  "config": {
+    "themeToggle": {
+      "defaultTheme": "auto",
+      "showToggle": true
+    },
+    "colors": {
+      "light": {
+        "background": "#ffffff",
+        "surface": "#f2f2f2",
+        "primary": "#082840",
+        "secondary": "#c0c0c0",
+        "accent": "#5f2b48",
+        "text": "#333333",
+        "textMuted": "#595959",
+        "link": "#082840",
+        "linkHover": "#5f2b48",
+        "linkVisited": "#17050f",
+        "border": "#e0e0e0"
+      },
+      "dark": {
+        "background": "#15202b",
+        "surface": "#1b2733",
+        "primary": "#1493fb",
+        "secondary": "#6969f7",
+        "accent": "#6969f7",
+        "text": "#dad8d8",
+        "textMuted": "#8a99a8",
+        "link": "#1493fb",
+        "linkHover": "#6969f7",
+        "linkVisited": "#a6a6f8",
+        "border": "#2a3845"
+      }
+    },
+    "typography": {
+      "fontFamily": "-apple-system, system-ui, sans-serif",
+      "fontFamilyHeading": "inherit",
+      "fontFamilyMono": "'Consolas', 'Monaco', monospace",
+      "fontSize": "1rem",
+      "lineHeight": "1.6"
+    },
+    "logos": {
+      "default": "",
+      "dark": "",
+      "favicon": "/favicon.svg"
+    },
+    "social": [],
+    "socialPlatforms": {
+      "twitter": "https://twitter.com/{account}",
+      "x": "https://x.com/{account}",
+      "github": "https://github.com/{account}",
+      "linkedin": "https://linkedin.com/in/{account}",
+      "youtube": "https://youtube.com/@{account}",
+      "instagram": "https://instagram.com/{account}",
+      "facebook": "https://facebook.com/{account}",
+      "tiktok": "https://tiktok.com/@{account}",
+      "discord": "https://discord.gg/{account}",
+      "twitch": "https://twitch.tv/{account}",
+      "reddit": "https://reddit.com/user/{account}",
+      "bluesky": "https://bsky.app/profile/{account}",
+      "mastodon": "https://{instance}/@{user}"
+    },
+    "analytics": {
+      "googleAnalytics": "",
+      "plausible": ""
+    },
+    "features": {
+      "darkMode": true,
+      "search": false,
+      "rss": true,
+      "sitemap": true
+    },
+    "comments": {
+      "enabled": false,
+      "provider": "disqus",
+      "disqus": {
+        "shortname": ""
+      }
+    },
+    "navigation": {
+      "showHomeLink": true,
+      "pagination": {
+        "enabled": true,
+        "pageSize": 10
+      }
+    },
+    "codeHighlighting": {
+      "prismTheme": "prism-tomorrow",
+      "diffHighlight": true
+    },
+    "footer": {
+      "copyright": "{year} {site.title}",
+      "startYear": null,
+      "showPoweredBy": true,
+      "showGitSha": true,
+      "gitHubRepo": ""
+    }
+  }
+}
