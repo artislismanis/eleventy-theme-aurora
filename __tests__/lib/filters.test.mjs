@@ -393,6 +393,31 @@ describe('filters.mjs', () => {
     });
   });
 
+  describe('cssVarKey', () => {
+    it('should kebab-case camelCase keys so they match the SCSS var names', () => {
+      expect(filters.cssVarKey('linkHover')).toBe('link-hover');
+      expect(filters.cssVarKey('textMuted')).toBe('text-muted');
+      expect(filters.cssVarKey('linkVisited')).toBe('link-visited');
+    });
+
+    it('should pass single-word keys through lowercased', () => {
+      expect(filters.cssVarKey('background')).toBe('background');
+      expect(filters.cssVarKey('primary')).toBe('primary');
+    });
+
+    it('should sanitize unsafe characters to prevent CSS identifier injection', () => {
+      expect(filters.cssVarKey('foo;color:red')).toBe('foo-color-red');
+      expect(filters.cssVarKey('a}b{c')).toBe('a-b-c');
+      expect(filters.cssVarKey('--leading')).toBe('leading');
+    });
+
+    it('should handle non-strings', () => {
+      expect(filters.cssVarKey(null)).toBe('');
+      expect(filters.cssVarKey(undefined)).toBe('');
+      expect(filters.cssVarKey(42)).toBe('');
+    });
+  });
+
   describe('socialUrl', () => {
     const platforms = {
       twitter: 'https://twitter.com/{account}',
@@ -552,6 +577,41 @@ describe('filters.mjs', () => {
       const result = filters.socialLabel({});
 
       expect(result).toBe('');
+    });
+  });
+
+  describe('socialIcon', () => {
+    it('should return an inline currentColor SVG for a known brand', () => {
+      const svg = filters.socialIcon('github');
+
+      expect(svg).toContain('<svg');
+      expect(svg).toContain('class="social-icon"');
+      expect(svg).toContain('fill="currentColor"');
+      expect(svg).toContain('aria-hidden="true"');
+      expect(svg).toMatch(/<path d="[^"]+"/);
+    });
+
+    it('should be case-insensitive', () => {
+      expect(filters.socialIcon('GitHub')).toContain('<svg');
+    });
+
+    it('should map legacy twitter to the X icon', () => {
+      expect(filters.socialIcon('twitter')).toBe(filters.socialIcon('x'));
+    });
+
+    it('should render a supplemental icon for brands simple-icons removed', () => {
+      // LinkedIn was removed from simple-icons; the theme ships a fallback glyph.
+      expect(filters.socialIcon('linkedin')).toContain('<svg');
+    });
+
+    it('should return an empty string for unknown platforms (text fallback)', () => {
+      expect(filters.socialIcon('not-a-real-platform')).toBe('');
+    });
+
+    it('should handle non-strings', () => {
+      expect(filters.socialIcon(null)).toBe('');
+      expect(filters.socialIcon(undefined)).toBe('');
+      expect(filters.socialIcon(42)).toBe('');
     });
   });
 });
