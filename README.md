@@ -58,6 +58,14 @@ Two self-contained, per-page opt-in features ship with the theme:
 
 Enable per page via front matter, e.g. `feature: code-highlighting`.
 
+## Documentation
+
+- [Shortcodes](docs/shortcodes.md) — layout shortcodes (`contentGrid`, `box`,
+  `hero`, `heroButton`) and post shortcodes (`pinnedPost`, `latestPosts`,
+  `relatedPosts`), with every argument and its default.
+- [Filters](docs/filters.md) — all Nunjucks filters (escaping, dates, tags,
+  content, social, utilities) with signatures.
+
 ## Local development
 
 This repo lives alongside the
