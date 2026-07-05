@@ -10,6 +10,28 @@
   navigation: auto;
 }
 
+// Cross-document navigations cross-fade the whole page as one `root` snapshot.
+// The header and footer are identical between pages, so cross-fading them through
+// themselves leaves two ~50%-opacity copies overlapping for a frame — a shimmer
+// that reads as a flicker/redraw. Giving the persistent chrome its own transition
+// name pulls it out of the root snapshot so it stays put; only <main> cross-fades.
+header {
+  view-transition-name: site-header;
+}
+
+footer {
+  view-transition-name: site-footer;
+}
+
+// Honour reduced-motion: skip the cross-fade entirely.
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 html,
 body {
   padding: 0;
