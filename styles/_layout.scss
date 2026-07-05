@@ -98,7 +98,12 @@ header {
 .nav a:hover {
   text-decoration: underline;
   text-decoration-thickness: 4px;
-  text-underline-offset: 3px;
+  text-underline-offset: 6px;
+
+  // Draw a solid line rather than the default skip-ink: auto, which punches a gap
+  // around descenders (the "g" in "Blog") and reads as a broken underline. The
+  // larger offset keeps the solid line clear of the descender.
+  text-decoration-skip-ink: none;
 }
 
 // ============================================
