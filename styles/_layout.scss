@@ -38,6 +38,7 @@ header {
 .home-link {
   font-size: 1.6em;
   font-weight: 700;
+  line-height: 1; // drop the leading so the wordmark's caps top-align with the nav
   text-decoration: none;
 
   &,
