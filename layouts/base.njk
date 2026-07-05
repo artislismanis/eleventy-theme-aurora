@@ -50,13 +50,17 @@
             />
           </a>
         {% elif site and site.branding and site.branding.wordmark and site.branding.wordmark.text %}
-          <a href="/" class="home-link">{{ site.branding.wordmark.text | wordmark(site.branding.wordmark.accent) | safe }}</a>
+          <a href="/" class="home-link"
+            >{{ site.branding.wordmark.text | wordmark(site.branding.wordmark.accent) | safe }}</a
+          >
         {% else %}
           <a href="/" class="home-link">{{ site.title | escapeHtml }}</a>
         {% endif %}
 
         {% if site and site.branding and site.branding.tagline %}
-          <p class="logo-tagline">{{ (site.branding.tagline if site.branding.tagline is string else site.description) | escapeHtml }}</p>
+          <p class="logo-tagline">
+            {{ (site.branding.tagline if site.branding.tagline is string else site.description) | escapeHtml }}
+          </p>
         {% endif %}
       </div>
 
