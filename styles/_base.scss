@@ -47,11 +47,7 @@ li {
 // Heading type scale — tighter than the browser defaults (2 / 1.5 / 1.17em),
 // tuned for the narrow content column and scaling with the base font size (em).
 // Component headings (.hero__title, .post-card__title, …) set their own size via
-// a class and are unaffected.
-h1 {
-  font-size: 1.8em;
-}
-
+// a class and are unaffected. (h1's size lives with its rhythm rule below.)
 h2 {
   font-size: 1.4em;
 }
@@ -285,5 +281,6 @@ h6 + .header-anchor {
 h1 {
   margin-top: 0;
   margin-bottom: 0.75rem;
+  font-size: 1.8em;
   line-height: 1.2;
 }
