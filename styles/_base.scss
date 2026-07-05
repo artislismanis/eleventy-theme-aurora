@@ -6,55 +6,6 @@
   box-sizing: border-box;
 }
 
-@view-transition {
-  navigation: auto;
-}
-
-// Cross-document navigations cross-fade the whole page as one `root` snapshot.
-// The header and footer are identical between pages, so cross-fading them through
-// themselves leaves two ~50%-opacity copies overlapping for a frame — a shimmer
-// that reads as a flicker/redraw. Giving the persistent chrome its own transition
-// name pulls it out of the root snapshot so it stays put; only <main> cross-fades.
-header {
-  view-transition-name: site-header;
-}
-
-footer {
-  view-transition-name: site-footer;
-}
-
-// Robust cross-fade for the main-content (root) layer. The default UA cross-fade
-// composites the old and new snapshots with mix-blend-mode: plus-lighter inside an
-// isolated pair; that pairing is a known source of an end-of-transition flash,
-// where the outgoing frame briefly pops back to full opacity right before the
-// transition settles. Instead, hold the old snapshot solid underneath and fade the
-// new one in over it with a normal blend: the composite can only ever move from old
-// toward new — never flash back — and the new frame ends fully opaque on top.
-::view-transition-old(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-new(root) {
-  animation: aurora-root-fade-in 240ms ease both;
-  mix-blend-mode: normal;
-}
-
-@keyframes aurora-root-fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-// Honour reduced-motion: skip the cross-fade entirely.
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
-  }
-}
-
 html,
 body {
   padding: 0;
