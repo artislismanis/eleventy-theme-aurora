@@ -6,6 +6,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {# Apply the saved/forced theme before first paint. Without this, main.js (a
+       deferred module) sets data-theme only after the page renders, flashing the
+       wrong theme for a frame — especially visible across view transitions. #}
+    <script>
+      (() => {
+        try {
+          const el = document.documentElement;
+          const saved = localStorage.getItem('theme');
+          if (saved) el.dataset.theme = saved;
+          else if ((el.dataset.defaultTheme || 'auto') !== 'auto')
+            el.dataset.theme = el.dataset.defaultTheme;
+        } catch (e) {}
+      })();
+    </script>
+
     <title>{{ (title or site.title) | escapeHtml }}</title>
     <meta name="description" content="{{ (description or site.description) | escapeAttr }}" />
 
