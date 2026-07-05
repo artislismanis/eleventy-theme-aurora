@@ -222,26 +222,27 @@ table {
     color 0.2s ease;
 }
 
-// Anchor font-size matches the heading type scale; a small top margin offsets the
-// heading's line-height leading (1.25) so the "#" cap aligns with the heading cap.
+// Anchor font-size matches the heading type scale. The top margin drops the "#"
+// to sit on the heading's baseline — a roughly constant ~4.3px offset, so the em
+// value grows as the heading (and anchor font) shrinks.
 h2 + .header-anchor {
-  margin-top: 0.12em;
+  margin-top: 0.195em;
   font-size: 1.4em;
 }
 
 h3 + .header-anchor {
-  margin-top: 0.12em;
+  margin-top: 0.25em;
   font-size: 1.2em;
 }
 
 h4 + .header-anchor {
-  margin-top: 0.12em;
+  margin-top: 0.27em;
   font-size: 1.05em;
 }
 
 h5 + .header-anchor,
 h6 + .header-anchor {
-  margin-top: 0.12em;
+  margin-top: 0.3em;
   font-size: 0.95em;
 }
 
