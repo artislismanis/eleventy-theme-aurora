@@ -25,6 +25,7 @@
         "deep": [
           "data-theme",
           "data-component",
+          "aria-current",
           "language-",
           "code",
           "pre",
@@ -43,7 +44,7 @@
             "stage": 3,
             "features": {
               "nesting-rules": true,
-              "custom-properties": true,
+              "custom-properties": false,
               "custom-media-queries": true
             }
           }
@@ -84,29 +85,29 @@
     "colors": {
       "light": {
         "background": "#ffffff",
-        "surface": "#f5f5f5",
-        "primary": "#1a1a1a",
-        "secondary": "#525252",
-        "accent": "#9b3b54",
-        "text": "#262626",
-        "textMuted": "#737373",
-        "link": "#1a1a1a",
-        "linkHover": "#9b3b54",
-        "linkVisited": "#595959",
-        "border": "#d4d4d4"
+        "surface": "#deebf7",
+        "primary": "#172c51",
+        "secondary": "#5b9bd5",
+        "accent": "#e8722e",
+        "text": "#172c51",
+        "textMuted": "#4a7cb5",
+        "link": "#172c51",
+        "linkHover": "#e8722e",
+        "linkVisited": "#172c51",
+        "border": "#c5d8ee"
       },
       "dark": {
-        "background": "#171717",
-        "surface": "#262626",
-        "primary": "#f5f5f5",
-        "secondary": "#737373",
-        "accent": "#9b3b54",
-        "text": "#e5e5e5",
-        "textMuted": "#a3a3a3",
-        "link": "#fafafa",
-        "linkHover": "#9b3b54",
-        "linkVisited": "#a3a3a3",
-        "border": "#404040"
+        "background": "#0e1b30",
+        "surface": "#172c51",
+        "primary": "#deebf7",
+        "secondary": "#5b9bd5",
+        "accent": "#e8722e",
+        "text": "#d8e5f4",
+        "textMuted": "#92b0d4",
+        "link": "#a8cbed",
+        "linkHover": "#e8722e",
+        "linkVisited": "#a8cbed",
+        "border": "#2b4670"
       }
     },
     "typography": {
@@ -128,7 +129,7 @@
       "diffHighlight": true
     },
     "footer": {
-      "copyright": "{year} {site.title}",
+      "copyright": " © {year} {site.title}",
       "alignment": "center",
       "showPoweredBy": true,
       "showGitSha": true

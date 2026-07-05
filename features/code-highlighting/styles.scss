@@ -13,12 +13,13 @@
 
 :root {
   // Border radius (PrismJS doesn't set this)
-  --code-border-radius: 0.5rem;
+  --code-border-radius: 0;
 
-  // Copy button - adapts to theme colors
-  --code-copy-button-bg: var(--color-surface);
-  --code-copy-button-fg: var(--color-text);
-  --code-copy-button-hover-bg: var(--color-border);
+  // Copy button. The code block is always dark (dark PrismJS theme), so pin the
+  // button to the LIGHT palette in both modes — otherwise dark-on-dark vanishes.
+  --code-copy-button-bg: var(--theme-light-surface, #f5f5f5);
+  --code-copy-button-fg: var(--theme-light-text, #262626);
+  --code-copy-button-hover-bg: var(--theme-light-border, #d4d4d4);
   --code-copy-button-active-bg: var(--color-secondary);
   --code-copy-button-padding: 0.375rem 0.75rem;
   --code-copy-button-font-size: 0.75rem;
