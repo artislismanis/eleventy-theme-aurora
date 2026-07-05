@@ -410,11 +410,22 @@
     border-radius: 0.375rem;
     transition: all 0.2s ease;
 
+    // Pin the label colour across every link state. The global `a:hover` /
+    // `a:visited` rules (specificity 0,1,1) otherwise outrank a single button
+    // class and repaint the text — hover turns it accent-orange (invisible on the
+    // orange fill) and a visited link turns it link-visited navy (unreadable).
+    // Declaring &:hover/&:visited here lands at 0,2,0 and wins.
     &--primary {
       background: var(--color-accent);
-      color: #fff;
 
-      &:hover {
+      &,
+      &:visited {
+        color: #fff;
+      }
+
+      &:hover,
+      &:active {
+        color: #fff;
         filter: brightness(1.12);
         transform: translateY(-2px);
       }
@@ -422,14 +433,19 @@
 
     &--secondary {
       background: transparent;
-      color: var(--color-text);
       border: 2px solid var(--color-text);
+
+      &,
+      &:visited {
+        color: var(--color-text);
+      }
 
       // Pronounced solid hover in both modes: fill with the text colour and flip
       // the label to the background colour. This is mode-aware automatically
       // (dark fill + light label in light mode, light fill + dark label in dark
       // mode). Border stays var(--color-text) in both states (no flip).
-      &:hover {
+      &:hover,
+      &:active {
         background: var(--color-text);
         color: var(--color-background);
         transform: translateY(-2px);
