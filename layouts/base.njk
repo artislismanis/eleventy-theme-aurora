@@ -22,6 +22,12 @@
       })();
     </script>
 
+    {# Render-block the first paint until <main> is parsed so cross-document view
+       transitions capture a complete, painted snapshot in one shot. Without it the
+       new document renders in stages and the transition can flash the old page for
+       a frame near the end. Ignored by browsers that don't support rel=expect. #}
+    <link rel="expect" href="#main" blocking="render" />
+
     <title>{{ (title or site.title) | escapeHtml }}</title>
     <meta name="description" content="{{ (description or site.description) | escapeAttr }}" />
 
