@@ -99,6 +99,10 @@ header {
   text-decoration: underline;
   text-decoration-thickness: 4px;
   text-underline-offset: 3px;
+
+  // Draw a solid line through descenders (the "g" in "Blog" etc). Default
+  // skip-ink: auto punches a gap around them, which reads as a broken underline.
+  text-decoration-skip-ink: none;
 }
 
 // ============================================
