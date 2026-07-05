@@ -72,6 +72,7 @@ and action buttons (`heroButton`). Without a background it uses the theme's
 | `align` | string | `"center"` | Text alignment: `left` \| `center` \| `right`. |
 | `height` | string | `"auto"` | Minimum height (sets `--hero-height`). |
 | `overlay` | boolean | `true` | Dark overlay over a background image (for legible text). |
+| `headingLevel` | number | `2` | Title heading level (`1`–`6`). Defaults to `h2` so it sits under the page's `h1`; use `1` when the hero is the page's main heading. |
 | `className` | string | `""` | Extra class on the hero. |
 
 ### `heroButton`

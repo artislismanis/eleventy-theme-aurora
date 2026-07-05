@@ -1,7 +1,7 @@
 # Theme default robots.txt
-# Override by creating public/robots.txt in your content repo
+# Override by creating public/robots.txt in your content repo.
+# Sitemap URLs must be ABSOLUTE, so add one in your override, e.g.:
+#   Sitemap: https://your-site.example/sitemap.xml
 
 User-agent: *
 Allow: /
-
-Sitemap: /sitemap.xml
