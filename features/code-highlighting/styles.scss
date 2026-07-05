@@ -41,6 +41,12 @@
   // Translucent so they read on the dark PrismJS code background.
   --code-diff-inserted-bg: rgb(46 160 67 / 18%);
   --code-diff-deleted-bg: rgb(248 81 73 / 18%);
+
+  // Text colours for diff lines. PrismJS's own inserted/deleted colours assume a
+  // light background and fail contrast on the dark code block, so set light
+  // green/red (≥4.5:1 on the tinted line backgrounds above).
+  --code-diff-inserted-fg: #7ee787;
+  --code-diff-deleted-fg: #ffa198;
 }
 
 // Enhancements on top of PrismJS base
@@ -73,9 +79,17 @@ pre[class*='language-'] {
 // requires), so we target the line spans directly. The +/- glyph lives in a
 // child `.token.prefix`, which is left untouched.
 pre[class*='language-diff'] {
+  .token.inserted {
+    color: var(--code-diff-inserted-fg);
+  }
+
   .token.inserted:not(.prefix) {
     display: block;
     background-color: var(--code-diff-inserted-bg);
+  }
+
+  .token.deleted {
+    color: var(--code-diff-deleted-fg);
   }
 
   .token.deleted:not(.prefix) {

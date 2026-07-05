@@ -1,6 +1,6 @@
 {
   "name": "eleventy-theme-aurora",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A drop-in Eleventy theme for @eleventy-plugin-themer, started from theme-base",
   "type": "module",
   "main": "lib/index.mjs",
