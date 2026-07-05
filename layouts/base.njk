@@ -39,18 +39,26 @@
     <a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
 
     <header>
-      {# Logo or site title #}
-      {% if site and site.branding and site.branding.logo %}
-        <a href="/" class="home-link">
-          <img
-            src="{{ site.branding.logo | safeUrl | escapeAttr }}"
-            alt="{{ site.title | escapeAttr }}"
-            class="site-logo"
-          />
-        </a>
-      {% else %}
-        <a href="/" class="home-link">{{ site.title | escapeHtml }}</a>
-      {% endif %}
+      {# Logo: image > styled text wordmark > site.title, plus optional tagline #}
+      <div class="logo">
+        {% if site and site.branding and site.branding.logo %}
+          <a href="/" class="home-link">
+            <img
+              src="{{ site.branding.logo | safeUrl | escapeAttr }}"
+              alt="{{ site.title | escapeAttr }}"
+              class="site-logo"
+            />
+          </a>
+        {% elif site and site.branding and site.branding.wordmark and site.branding.wordmark.text %}
+          <a href="/" class="home-link">{{ site.branding.wordmark.text | wordmark(site.branding.wordmark.accent) | safe }}</a>
+        {% else %}
+          <a href="/" class="home-link">{{ site.title | escapeHtml }}</a>
+        {% endif %}
+
+        {% if site and site.branding and site.branding.tagline %}
+          <p class="logo-tagline">{{ (site.branding.tagline if site.branding.tagline is string else site.description) | escapeHtml }}</p>
+        {% endif %}
+      </div>
 
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
       <nav>

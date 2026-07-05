@@ -41,9 +41,9 @@
   --color-link-visited: var(--theme-light-link-visited, #595959);
   --color-border: var(--theme-light-border, #d4d4d4);
 
-  // Hero gradient: darker -> lighter (top-left -> bottom-right). Starts at the
-  // surface grey and ends near-white (close to the page background, but not quite).
-  --hero-gradient: linear-gradient(160deg, var(--color-surface), #fcfcfc);
+  // Hero gradient (light): two clean sky-blue tints so the panel reads as a
+  // crisp, defined shape against the white page (a near-white end stop melts in).
+  --hero-gradient: linear-gradient(160deg, #cfe3f6, #eaf3fc);
 
   // External-link icon (Lucide "external-link"). Applied as a mask so it inherits
   // currentColor; override with any single-colour SVG data-URI to swap the glyph.

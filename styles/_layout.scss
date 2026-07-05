@@ -4,7 +4,7 @@
 
 main,
 footer {
-  padding: 1rem;
+  padding: 1rem 0; // flush with the content-column edge
 }
 
 main :first-child {
@@ -26,19 +26,41 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+  padding: 1em 0;
   border-bottom: 1px dashed var(--color-border);
 }
 
-.home-link {
+// Logo block grows to push the nav + toggle right.
+.logo {
   flex-grow: 1;
-  font-size: 1em; /* 16px /16 */
+}
+
+.home-link {
+  font-size: 1.6em;
   font-weight: 700;
-  text-decoration: none; // never underline; plum hover colour still applies
+  text-decoration: none;
+
+  &,
+  &:visited {
+    color: var(--color-text); // chrome, not a reading link
+  }
 
   &:hover {
     text-decoration: none;
   }
+}
+
+// Accented substring in a text wordmark (e.g. a trailing dot).
+.logo-accent {
+  color: var(--color-accent);
+  font-weight: 900; // system fonts may render no heavier
+}
+
+.logo-tagline {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
 }
 
 .nav {
@@ -52,14 +74,27 @@ header {
 .nav-item {
   display: inline-block;
 
-  a[href]:not(:hover) {
+  a:not(:hover) {
     text-decoration: none;
   }
 }
 
+// Nav links are chrome: body-text colour, accent on hover.
+.nav a {
+  &,
+  &:visited {
+    color: var(--color-text);
+  }
+
+  &:hover {
+    color: var(--color-link-hover);
+  }
+}
+
 // Active page and hover both get the thick "highlighter" underline.
-.nav a[href][aria-current='page'],
-.nav a[href]:hover {
+// (aria-current is safelisted in theme.json so this survives purge.)
+.nav a[aria-current='page'],
+.nav a:hover {
   text-decoration: underline;
   text-decoration-thickness: 4px;
   text-underline-offset: 3px;
