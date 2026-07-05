@@ -25,7 +25,7 @@ header {
   gap: 1em;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; // top-align nav with the title (logo may carry a tagline)
   padding: 1em 0;
   border-bottom: 1px dashed var(--color-border);
 }

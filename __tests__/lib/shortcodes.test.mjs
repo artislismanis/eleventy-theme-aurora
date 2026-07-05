@@ -102,8 +102,16 @@ describe('shortcodes.mjs', () => {
         });
 
         expect(result).toContain('class="hero');
-        expect(result).toContain('<h1 class="hero__title">Welcome</h1>');
+        expect(result).toContain('<h2 class="hero__title">Welcome</h2>');
         expect(result).toContain('<p class="hero__subtitle">A great site</p>');
+      });
+
+      it('should honour a custom headingLevel', () => {
+        const result = pairedShortcodes.hero.call({}, '', {
+          title: 'Welcome',
+          headingLevel: 1,
+        });
+        expect(result).toContain('<h1 class="hero__title">Welcome</h1>');
       });
 
       it('should include background image', () => {
