@@ -43,10 +43,11 @@ li {
   line-height: 1.5;
 }
 
-// Wrapped in :where() so these base link colors have zero specificity and any
-// component (nav, buttons, breadcrumb, etc.) can override with a plain class
-// without fighting the a[href] attribute selector.
-:where(a[href]) {
+// Base link colours. Plain `a` (not `:where(a[href])`) because PurgeCSS strips
+// `:where()` pseudos in the production build, which dropped these colours and
+// left links browser-default. Specificity 0,0,1 stays below any component class,
+// so nav/buttons/breadcrumb still override.
+a {
   color: var(--color-link);
 
   &:visited {
