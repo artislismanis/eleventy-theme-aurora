@@ -25,6 +25,7 @@ html {
 
 body {
   max-width: 40em;
+  font-size: var(--font-size); // theme typography.fontSize (default 0.9375rem)
 }
 
 // ============================================
@@ -41,6 +42,34 @@ p {
 
 li {
   line-height: 1.5;
+}
+
+// Heading type scale — tighter than the browser defaults (2 / 1.5 / 1.17em),
+// tuned for the narrow content column and scaling with the base font size (em).
+// Component headings (.hero__title, .post-card__title, …) set their own size via
+// a class and are unaffected.
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.05em;
+}
+
+h5 {
+  font-size: 0.95em;
+}
+
+h6 {
+  font-size: 0.9em;
 }
 
 // Base link colours. Plain `a` (not `:where(a[href])`) because PurgeCSS strips

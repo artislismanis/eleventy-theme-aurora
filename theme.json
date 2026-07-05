@@ -114,7 +114,7 @@
       "fontFamily": "-apple-system, system-ui, sans-serif",
       "fontFamilyHeading": "inherit",
       "fontFamilyMono": "'Consolas', 'Monaco', monospace",
-      "fontSize": "1rem",
+      "fontSize": "0.9375rem",
       "lineHeight": "1.6"
     },
     "navigation": {
