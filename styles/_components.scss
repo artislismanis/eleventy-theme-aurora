@@ -91,9 +91,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text); // chrome, accent reserved for hover
   text-decoration: none;
   transition: color 0.2s ease;
+
+  // The global `a:visited` rule (0,1,1) outranks a lone `.social-link` (0,1,0),
+  // so a visited icon greys out. In practice that's the RSS link, the only
+  // same-origin URL in the row. Declaring &:visited here lands at 0,2,0 and wins.
+  &,
+  &:visited {
+    color: var(--color-text); // chrome, accent reserved for hover
+  }
 
   &:hover {
     color: var(--color-link-hover);
@@ -138,9 +145,16 @@
   }
 
   a {
-    color: var(--color-text); // chrome, accent reserved for hover
     text-decoration: none;
     font-size: 0.875rem;
+
+    // `.footer-menu a` ties `a:visited` on specificity (0,1,1) and only wins on
+    // source order. Declaring &:visited here lands at 0,2,1 so a visited footer
+    // link keeps the chrome colour whatever the partials' load order.
+    &,
+    &:visited {
+      color: var(--color-text); // chrome, accent reserved for hover
+    }
 
     &:hover {
       color: var(--color-link-hover);
