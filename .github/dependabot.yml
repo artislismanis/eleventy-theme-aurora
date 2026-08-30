@@ -21,7 +21,11 @@ updates:
       dev-toolchain:
         dependency-type: development
         update-types: [minor, patch]
-    # Majors stay ungrouped so each arrives as its own reviewable PR.
+      # eslint and @eslint/js release in lockstep; ungrouped majors let one land
+      # without the other, which leaves package.json unresolvable.
+      eslint:
+        patterns: ['eslint', '@eslint/js']
+    # Other majors stay ungrouped so each arrives as its own reviewable PR.
 
   - package-ecosystem: github-actions
     directory: /
