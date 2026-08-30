@@ -246,6 +246,13 @@
   // Right-aligned social links
   .social-links {
     margin: 0;
+
+    // space-between parks a lone child at flex-start, so the social links drift
+    // left whenever the footer menu is empty. Scoped above the stacking
+    // breakpoint; an auto inline margin would fight align-items in the column.
+    @media (width > 640px) {
+      margin-inline-start: auto;
+    }
   }
 
   // Stack on mobile
