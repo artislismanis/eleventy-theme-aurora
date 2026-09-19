@@ -1,6 +1,6 @@
 {
   "name": "eleventy-theme-aurora",
-  "version": "0.3.19",
+  "version": "0.3.20",
   "description": "A drop-in Eleventy theme for @eleventy-plugin-themer, started from theme-base",
   "type": "module",
   "main": "lib/index.mjs",
@@ -40,6 +40,10 @@
   ],
   "author": "Artis Lismanis",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artislismanis/eleventy-theme-aurora.git"
+  },
   "publishConfig": {
     "access": "public"
   },
