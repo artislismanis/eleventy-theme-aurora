@@ -45,8 +45,12 @@ updates:
     commit-message:
       prefix: ci
     groups:
+      # Minors only, so an action major arrives as its own PR. release.yml runs
+      # on tag push and never on a PR, so a grouped major would merge green and
+      # only fail at publish time, when the version is already tagged.
       actions:
         patterns: ['*']
+        update-types: [minor, patch]
     # Patch bumps are ignored outright. `update-types` rules apply to version
     # updates only, so Dependabot security updates still raise patch-level PRs.
     ignore:
